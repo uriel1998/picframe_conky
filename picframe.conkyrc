@@ -24,7 +24,7 @@ own_window_hints undecorated,sticky,skip_taskbar,skip_pager
 border_inner_margin 0
 border_outer_margin 0
 
-minimum_size 120 120
+minimum_size 95 120
 # maximum_width 175
 
 alignment tl
@@ -53,4 +53,4 @@ color1 orange
 color2 green
 
 TEXT
-${image /home/steven/.conky/pix/image.png -p 0,0 -s 120x120}
+${image /home/steven/.conky/pix/image.png -p 0,0 -s 95x120}

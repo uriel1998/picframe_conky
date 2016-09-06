@@ -5,6 +5,7 @@ declare userbin
 declare align1
 declare align2
 declare rotate
+declare imagetouse
 
 echo "Creating (if needed) $HOME/.conky, $HOME/.conky/pix, and $HOME/.config/picframe"
 echo "and proceeding to put conky script in $HOME/.conky/picframe.conkyrc "
@@ -80,13 +81,15 @@ echo "to import into the picture frame script."
 read
 if [ -d "$read" ];then
 	find -H "$read" -type f \( -name "*.jpg" -or -name "*.png" -or -name "*.jpeg" -or -name "*.gif" \) -exec cp {} $HOME/.config/picframe  \;
+	imagetouse=$HOME/.config/picframe
 elif [ -f "$read"];then
 	cp "$read" $HOME/.conky/pix/image.png
 	cp $HOME/.conky/pix/image.png $HOME/.config/picframe
-	
+	imagetouse=$HOME/.config/picframe/image.png	
 else
 	curl -o $HOME/.conky/pix/image.png http://unsplash.it/256/256/?random
 	cp $HOME/.conky/pix/image.png $HOME/.config/picframe	
+	imagetouse=$HOME/.config/picframe/image.png	
 fi
 
 echo "Do you want a frame (Y/n)?"
@@ -96,10 +99,9 @@ if [ $read == "n" ];then
 fi
 
 #inital run to get us going
-$ourpath/picframe.sh $arg1 --rotate $rotate --alignment $align1$align2 -x-gap $xgap -y-gap $ygap
+$ourpath/picframe.sh $arg1 --rotate $rotate --alignment $align1$align2 -x-gap $xgap -y-gap $ygap -i $imagetouse
 
 
 
 # add rotate to crontab
 # (crontab -l ; echo "0 * * * * your_command") | sort - | uniq - | crontab -
-/home/steven/bin/picframe.sh -a tl -r 0 -x-gap 0 -i /home/steven/.config/picframe
