@@ -11,7 +11,7 @@ Options:
 -a|--alignment          Image alignment position. Options are top_left, 
                         top_right, top_middle, bottom_left, bottom_right, 
                         bottom_middle, middle_left, middle_middle, 
-                        middle_right, or none (also can be abreviated as 
+                        middle_right, or none (also can be abbreviated as 
                         tl, tr, tm, bl, br, bm, ml, mm, mr)
                         Default: bottom_right
 -x-gap <x-gap>          Gap, in pixels, between right or left border of screen.
